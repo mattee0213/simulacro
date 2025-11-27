@@ -15,7 +15,7 @@ def registar(inventario, NomProduct, marca, categoria, PrecioUni, cantidad, gara
     inventario.append(nuevo_producto)
 
     return inventario
-def consultar (inventario):
+def listar (inventario):
     if not inventario:
         print("El inventario está vacío.")
     else:
@@ -37,6 +37,14 @@ def eliminar (inventario,marca):
      for productos in inventario:
           if productos['marca'] == marca:
                return inventario.remove(productos)
+          
+def mostrar (inventario,marca):
+     for producto in inventario:
+          if producto['marca'] == marca:
+            precioEncontrado= producto['PrecioUni'] 
+            return precioEncontrado
+          else:
+               return None
                
      
      

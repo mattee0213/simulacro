@@ -1,5 +1,6 @@
-from servicios import registar,consultar,actualizar,eliminar,inventario
+from servicios import registar,listar,actualizar,eliminar,mostrar,inventario
 from ventas import registar_ventas,ventas
+from datetime import datetime
 
 
 
@@ -23,7 +24,7 @@ while True:
 
     elif opcion == '2':
 
-        print(consultar(inventario))
+        print(listar(inventario))
     
     elif opcion == '3' :
         marca=input('ingresa el nombre del producto que quieres actualizar: ')
@@ -47,20 +48,20 @@ while True:
         print("ingresa los datos que te pedimos: \n")
         cliente = input("Nombre del cliente: ")
         TipoCliente = input("que tipo de cliente es: (1.'frecuente' 0.('regular')) ")
-        ProductoVendido = input("nombre del producto vendido: ")
-       
-
+        MarcaVendida = input("nombre de lamarca vendida: ")
         cantidad_venta = float(input("ingresa las unidades vendidas : "))
-        FechaVenta = int(input("fecha de venta: "))
+        FechaVenta = (input("fecha de venta:(dd/mm/yyyy)) "))
         Descuento = float(input("aplica el descuento: "))
-        for producto in inventario:
-            if ProductoVendido == producto['marca']:
-                print('funcioan')
 
-        registar_ventas(ventas,cliente,TipoCliente,ProductoVendido,cantidad_venta,FechaVenta,Descuento)
-        print('tu venta a sido registrada')
-        print(ventas)
-         
+        encontrado=mostrar(inventario,MarcaVendida)
+        if encontrado != None:
+
+            registar_ventas(ventas,encontrado,cliente,TipoCliente,MarcaVendida,cantidad_venta,FechaVenta,Descuento)
+            print('tu venta a sido registrada')
+            print(ventas)
+        else:
+            print('no se encontro el producto')
+            
 
 
 

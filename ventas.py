@@ -4,20 +4,21 @@ from servicios import registar,inventario
 ventas=[]
 
 
-def registar_ventas(ventas,cliente,TipoCliente,ProductoVendido,cantidad_venta,FechaVenta,Descuento):
+def registar_ventas(ventas,PrecioUni,cliente,TipoCliente,MarcaVendida,cantidad_venta,FechaVenta,Descuento):
     nuevo_venta = {
         'cliente': cliente,
         'TipoCliente': TipoCliente,
-        'ProductoVendido': ProductoVendido,
+        'MarcaVendida': MarcaVendida,
         'cantidad_ventas': cantidad_venta,
         'FechaVenta': FechaVenta,
         'Descuento': Descuento
     }
+
     if TipoCliente ==   '1' :
         print('regular')
         
-        precio_final = PrecioUni - (PrecioUni * Descuento / 100)
-        print(precio_final)
+        precio_final = PrecioUni - ((PrecioUni * Descuento) / 100)
+        print(f"tienes que pagar{precio_final}")
 
     elif TipoCliente == '0' :
         print('irregular')
@@ -36,4 +37,3 @@ def validar_inventario(cantidad_venta,cantidad):
         if nuevo_ventas["cantidad_ventas"] == cantidad_venta:
             cantidad_venta - cantidad 
     
-   
