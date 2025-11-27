@@ -1,9 +1,11 @@
 from servicios import registar,consultar,actualizar,eliminar,inventario
+from ventas import registar_ventas,ventas
+
 
 
 
 while True:
-    opcion =input('ingresa la opcion  que deseas realizar: \n 1. Registrar producto \n2.consultar \n3.actulizar \n4.eliminar \n')
+    opcion =input('ingresa la opcion  que deseas realizar: \n 1. Registrar producto \n2.consultar \n3.actulizar \n4.eliminar  \n 5.registar ventas \n 6.eliminar \n')
 
     if opcion == '1':
         print("ingresa los datos que te pedimos: \n")
@@ -11,11 +13,11 @@ while True:
         marca = input("Marca del producto: ")
         categoria = input("Categoria del producto: ")
         PrecioUni = float(input("Precio unitario del producto: "))
-        Cantidad = int(input("Cantidad del producto: "))
+        cantidad = int(input("Cantidad del producto: "))
         garantia = int(input("Garantia del producto (en años): "))
         
 
-        inventario =registar(inventario, NomProduct, marca, categoria, PrecioUni, Cantidad, garantia)
+        inventario =registar(inventario, NomProduct, marca, categoria, PrecioUni, cantidad, garantia)
 
         print("\nProducto registrado exitosamente!\n")
 
@@ -40,8 +42,27 @@ while True:
 
         eliminar(inventario,marca)
 
-        print(f"el producto {marca} a sido eliminado")
-    
+
+    elif opcion == '5' :
+        print("ingresa los datos que te pedimos: \n")
+        cliente = input("Nombre del cliente: ")
+        TipoCliente = input("que tipo de cliente es: (1.'frecuente' 0.('regular')) ")
+        ProductoVendido = input("nombre del producto vendido: ")
+       
+
+        cantidad_venta = float(input("ingresa las unidades vendidas : "))
+        FechaVenta = int(input("fecha de venta: "))
+        Descuento = float(input("aplica el descuento: "))
+        for producto in inventario:
+            if ProductoVendido == producto['marca']:
+                print('funcioan')
+
+        registar_ventas(ventas,cliente,TipoCliente,ProductoVendido,cantidad_venta,FechaVenta,Descuento)
+        print('tu venta a sido registrada')
+        print(ventas)
+         
+
+
 
 
 

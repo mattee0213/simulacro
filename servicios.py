@@ -1,13 +1,15 @@
-inventario=[{'NomProduct' : "laptop", 'marca': 'asus', 'categoria': 'vibook', 'PrecioUni' : 2500, 'Cantidad': 5, 'garantia' : 2},
+inventario=[{'NomProduct' : "laptop", 'marca': 'asus', 'categoria': 'vibook', 'PrecioUni' : 10000, 'Cantidad': 5, 'garantia' : 2},
             {'NomProduct' : "laptop", 'marca': 'acer', 'categoria': 'gamer', 'PrecioUni' : 8000, 'Cantidad': 8, 'garantia' : 7}]
 
-def registar(inventario, NomProduct, marca, categoria, PrecioUni, Cantidad, garantia):
+
+
+def registar(inventario, NomProduct, marca, categoria, PrecioUni, cantidad, garantia):
     nuevo_producto = {
         'NomProduct': NomProduct,
         'marca': marca,
         'categoria': categoria,
         'PrecioUni': PrecioUni,
-        'Cantidad': Cantidad,
+        'Cantidad': cantidad,
         'garantia': garantia
     }
     inventario.append(nuevo_producto)
